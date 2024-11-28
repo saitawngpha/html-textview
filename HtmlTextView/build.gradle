@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'bintray-release'
 
 android {
     compileSdkVersion 29
@@ -7,20 +6,45 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 29
+        versionCode 1
         versionName '4.0'
     }
-}
 
-publish {
-    userOrg = 'sufficientlysecure'
-    groupId = 'org.sufficientlysecure'
-    artifactId = 'html-textview'
-    publishVersion = android.defaultConfig.versionName
-    website = 'https://github.com/SufficientlySecure/html-textview'
-    desc = 'HtmlTextView is an extended TextView component for Android, which can load HTML and converts it into Spannable for displaying it.'
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
+}
 
- }
+// apply plugin: 'com.android.library'
+// apply plugin: 'bintray-release'
+
+// android {
+//     compileSdkVersion 29
+
+//     defaultConfig {
+//         minSdkVersion 14
+//         targetSdkVersion 29
+//         versionName '4.0'
+//     }
+// }
+
+// publish {
+//     userOrg = 'sufficientlysecure'
+//     groupId = 'org.sufficientlysecure'
+//     artifactId = 'html-textview'
+//     publishVersion = android.defaultConfig.versionName
+//     website = 'https://github.com/SufficientlySecure/html-textview'
+//     desc = 'HtmlTextView is an extended TextView component for Android, which can load HTML and converts it into Spannable for displaying it.'
+// }
+
+// dependencies {
+//     implementation 'androidx.annotation:annotation:1.1.0'
+
+//  }
